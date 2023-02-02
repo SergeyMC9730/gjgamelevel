@@ -75,6 +75,7 @@ public:
     std::string m_sExtraString;
     std::string m_sSettings;
     std::string m_sRecordString;
+    std::string m_sSondURL;
 
     std::vector<GJLevelObject> m_vLevelObjects;
 
