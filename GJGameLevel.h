@@ -77,8 +77,6 @@ public:
     std::string m_sRecordString;
     std::string m_sSondURL;
 
-    std::vector<GJLevelObject> m_vLevelObjects;
-
     // Should be RobTop string
     static GJGameLevel *initWithFullLevel(std::string backendResponse, int compatibilityGV);
     // Should be RobTop string
