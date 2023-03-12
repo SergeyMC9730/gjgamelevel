@@ -3,8 +3,6 @@
 #include <string>
 #include <vector>
 
-#include "GJLevelObject.h"
-
 #define PKSTRING 0
 #define PKINT 1
 #define PKBOOL 2
