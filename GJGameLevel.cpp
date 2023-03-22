@@ -4,6 +4,34 @@
 #include <cstring>
 #include <iostream>
 
+
+#define PKSTRING 0
+#define PKINT 1
+#define PKBOOL 2
+#define PKBASE64 3
+
+#define PARSE_KEY_PKSTRING(keyN, member) \
+    case keyN: {\
+        member = new std::string(parsed); \
+        break; \
+    }
+#define PARSE_KEY_PKINT(keyN, member) \
+    case keyN: {\
+        member = std::atoi(parsed); \
+        break; \
+    }
+#define PARSE_KEY_PKBOOL(keyN, member) \
+    case keyN: {\
+        member = (bool)(std::atoi(parsed)); \
+        break; \
+    }
+#define PARSE_KEY_PKBASE64(keyN, member) \
+    case keyN: {\
+        member = new std::string((char *)base64_decode(std::string(parsed)).data()); \
+        break; \
+    }
+#define PARSE_KEY(keyN, member, vType) PARSE_KEY_##vType(keyN, member)
+
 GJGameLevel *GJGameLevel::initWithFullLevel(std::string backendResponse, int compatibilityGV)
 {
     GJGameLevel *level = new GJGameLevel();
